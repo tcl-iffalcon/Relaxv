@@ -12,7 +12,6 @@ const PORT       = process.env.PORT || 7000;
 const TORRENTIO_CONFIG = [
   "providers=yts,eztv,rarbg,1337x,thepiratebay,kickasstorrents,horriblesubs,nyaasi,tokyotosho,anidex",
   "sort=qualitysize",
-  `realdebrid=${RD_API_KEY}`,
 ].join("|");
 
 // ============================================================
@@ -54,9 +53,19 @@ const builder = new addonBuilder(manifest);
 //  HELPERS
 // ============================================================
 async function fetchTorrentioStreams(type, imdbId) {
-  const url = `${TORRENTIO}/${TORRENTIO_CONFIG}/stream/${type}/${imdbId}.json`;
+  // Torrentio RD entegrasyonu: /realdebrid=KEY/ config path ile
+  const config = RD_API_KEY
+    ? TORRENTIO_CONFIG + `|realdebrid=${RD_API_KEY}`
+    : TORRENTIO_CONFIG;
+  const url = `${TORRENTIO}/${config}/stream/${type}/${imdbId}.json`;
   try {
-    const res = await axios.get(url, { timeout: 15000 });
+    const res = await axios.get(url, {
+      timeout: 20000,
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; StremioAddon/1.0)",
+        "Accept": "application/json",
+      }
+    });
     return res.data?.streams || [];
   } catch (err) {
     console.error(`Torrentio error [${imdbId}]:`, err.message);
@@ -94,11 +103,28 @@ function formatStream(s) {
   };
 }
 
+const CINEMETA_HOSTS = [
+  "https://v3-cinemeta.strem.io",
+  "https://cinemeta-catalogs.strem.io",
+  "https://cinemeta.strem.io",
+];
+
 async function fetchMeta(type, imdbId) {
-  try {
-    const res = await axios.get(`https://v3-cinemeta.strem.io/meta/${type}/${imdbId}.json`, { timeout: 8000 });
-    return res.data?.meta || null;
-  } catch { return null; }
+  for (const host of CINEMETA_HOSTS) {
+    try {
+      const res = await axios.get(`${host}/meta/${type}/${imdbId}.json`, {
+        timeout: 8000,
+        headers: { "User-Agent": "Mozilla/5.0" }
+      });
+      if (res.data?.meta) return res.data.meta;
+    } catch { /* try next */ }
+  }
+  // Fallback: RPDB posterler ile basit meta
+  return {
+    id: imdbId, name: imdbId,
+    poster: `https://images.metahub.space/poster/medium/${imdbId}/img`,
+    background: `https://images.metahub.space/background/medium/${imdbId}/img`,
+  };
 }
 
 // ============================================================
@@ -128,11 +154,17 @@ builder.defineCatalogHandler(async ({ type, id, extra }) => {
   const keyword = (extra?.search || "").toLowerCase().trim();
   try {
     if (keyword) {
-      const res = await axios.get(
-        `https://v3-cinemeta.strem.io/catalog/${type}/top/search=${encodeURIComponent(keyword)}.json`,
-        { timeout: 10000 }
-      );
-      return { metas: (res.data?.metas || []).slice(0, 50) };
+      let metas = [];
+      for (const host of CINEMETA_HOSTS) {
+        try {
+          const res = await axios.get(
+            `${host}/catalog/${type}/top/search=${encodeURIComponent(keyword)}.json`,
+            { timeout: 10000, headers: { "User-Agent": "Mozilla/5.0" } }
+          );
+          if (res.data?.metas?.length) { metas = res.data.metas; break; }
+        } catch { /* try next */ }
+      }
+      return { metas: metas.slice(0, 50) };
     }
     const idList = type === "movie" ? POPULAR_MOVIES : POPULAR_SERIES;
     const metas  = await Promise.all(idList.map(async (imdbId) => {
