@@ -45,9 +45,9 @@ function isHighQuality(title = "") {
 const manifest = {
   id: "community.rd4kultrahd",
   version: "1.2.0",
-  name: "RD 4K Ultra HD",
+  name: "Relaxv Addon",
   description:
-    "Torrentio kaynaklarından yalnızca 4K/UHD/BluRay/Remux/HDR/Dolby Vision içerikler — Real-Debrid ile anında oynatma.",
+    "Stremio ve Nuvio için Torrenti ile Real-Debrid üzerinden yalnızca 4K ve üstü içerikler + katalog sunar.",
   logo: "https://i.imgur.com/MZnPBgW.png",
   background: "https://i.imgur.com/LkrxS4J.jpg",
   catalogs: [
