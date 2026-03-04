@@ -221,15 +221,15 @@ const LANDING_HTML = `<!DOCTYPE html>
       background-image: url('data:image/jpeg;base64,${BG_IMAGE_B64}');
       background-size: cover;
       background-position: center 30%;
-      opacity: 0.28;
+      opacity: 0.52;
       filter: grayscale(30%) sepia(20%);
       transform: scale(1.05);
     }
     .bg-overlay {
       position: fixed; inset: 0;
       background:
-        linear-gradient(to right, rgba(4,4,11,0.2) 0%, rgba(4,4,11,0.7) 55%, rgba(4,4,11,0.95) 100%),
-        linear-gradient(to bottom, rgba(4,4,11,0.4) 0%, transparent 25%, transparent 75%, rgba(4,4,11,0.7) 100%);
+        linear-gradient(to right, rgba(4,4,11,0.05) 0%, rgba(4,4,11,0.45) 55%, rgba(4,4,11,0.82) 100%),
+        linear-gradient(to bottom, rgba(4,4,11,0.2) 0%, transparent 25%, transparent 75%, rgba(4,4,11,0.45) 100%);
     }
     .grain {
       position: fixed; inset: 0; opacity: 0.04;
