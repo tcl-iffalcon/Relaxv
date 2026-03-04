@@ -33,8 +33,8 @@ function isHighQuality(title = "") {
 const manifest = {
   id: "community.rd4kultrahd",
   version: "1.2.0",
-  name: "RD 4K Ultra HD",
-  description: "Torrentio kaynaklarından yalnızca 4K/UHD/BluRay/Remux/HDR/DV içerikler — Real-Debrid ile anında oynatma.",
+  name: "Relaxv Addon",
+  description: "Stremio ve Nuvio için Real-Debrid kullanarak Torrentio kaynaklarından yalnızca 4K/UHD/BluRay/Remux/HDR/DV içerikler sunar.",
   logo: "https://i.imgur.com/MZnPBgW.png",
   background: "https://i.imgur.com/LkrxS4J.jpg",
   catalogs: [
@@ -203,7 +203,7 @@ const LANDING_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RD 4K Ultra HD</title>
+  <title>Relaxv Addon</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -337,8 +337,8 @@ const LANDING_HTML = `<!DOCTYPE html>
   <div class="wrap">
     <div class="panel">
       <div class="brand">
-        <p class="brand-eyebrow">Stremio Addon &middot; Real-Debrid</p>
-        <h1 class="brand-name">RD <em>4K</em><br>Ultra HD</h1>
+        <p class="brand-eyebrow">Stremio ve Nuvio Eklentisi &middot; Real-Debrid</p>
+        <h1 class="brand-name">Relaxv <em>4K</em><br>Ultra HD</h1>
         <div class="brand-line"></div>
         <p class="brand-desc">
           <strong>Torrentio</strong> kaynaklarından yalnızca
