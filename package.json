@@ -1,0 +1,21 @@
+{
+  "name": "rd-4k-stremio-addon",
+  "version": "1.0.0",
+  "description": "Stremio addon: Real-Debrid üzerinden yalnızca 4K içerikler + katalog",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "stremio-addon-sdk": "^1.6.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "license": "MIT"
+}
