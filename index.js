@@ -44,7 +44,7 @@ function isHighQuality(title = "") {
 // ============================================================
 const manifest = {
   id: "community.rd4kultrahd",
-  version: "1.2.0",
+  version: "1.0.0",
   name: "Relaxv Addon",
   description:
     "Stremio ve Nuvio için Torrenti ile Real-Debrid üzerinden yalnızca 4K ve üstü içerikler + katalog sunar.",
