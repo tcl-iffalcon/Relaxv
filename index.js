@@ -14,7 +14,7 @@ const PORT       = process.env.PORT || 7000;   // Render otomatik PORT atar
 const manifest = {
   id: "community.rd4k",
   version: "1.0.0",
-  name: "RD 4K Ultra",
+  name: "Relaxv Addon",
   description: "Real-Debrid üzerinden yalnızca 4K/2160p içerikler. Katalog + stream desteği.",
   logo: "https://i.imgur.com/MZnPBgW.png",
   background: "https://i.imgur.com/LkrxS4J.jpg",
