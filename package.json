@@ -1,7 +1,7 @@
 {
-  "name": "rd-4k-stremio-addon",
+  "name": "Relaxv",
   "version": "1.0.0",
-  "description": "Stremio addon: Real-Debrid üzerinden yalnızca 4K içerikler + katalog",
+  "description": "Stremio ve Nuvio için Torrenti ile Real-Debrid üzerinden yalnızca 4K ve üstü içerikler + katalog sunar.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
