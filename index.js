@@ -146,7 +146,11 @@ async function has4KStream(stremioType, imdbId) {
 //  TMDB — fetch items and resolve IMDB IDs
 // ============================================================
 async function fetchTMDBItems(tmdbType, path) {
-  if (!TMDB_API_KEY) return [];
+  if (!TMDB_API_KEY) {
+    console.error("[TMDB] TMDB_API_KEY is not set! Add it in Render → Environment Variables.");
+    return [];
+  }
+  console.log(`[TMDB] Fetching ${tmdbType}/${path}, key: ${TMDB_API_KEY.slice(0,6)}...`);
 
   const [p1, p2] = await Promise.all([
     axios.get(`${TMDB_BASE}/${tmdbType}/${path}`, {
@@ -160,6 +164,7 @@ async function fetchTMDBItems(tmdbType, path) {
   ]);
 
   const items = [...(p1.data?.results || []), ...(p2.data?.results || [])];
+  console.log(`[TMDB] Got ${items.length} items from TMDB`);
 
   // Resolve IMDB IDs in batches of 10
   const resolved = [];
@@ -399,7 +404,10 @@ builder.defineStreamHandler(async ({ type, id }) => {
 //  SERVER + STARTUP WARMUP
 // ============================================================
 serveHTTP(builder.getInterface(), { port: PORT });
-console.log(`\n✅  RD 4K Ultra HD Addon v1.6.0 running`);
+console.log(`
+✅  RD 4K Ultra HD Addon v1.6.0 running`);
+console.log(`🔑  RD_API_KEY:   ${RD_API_KEY   ? '✅ set' : '❌ MISSING'}`);
+console.log(`🎬  TMDB_API_KEY: ${TMDB_API_KEY ? '✅ set' : '❌ MISSING'}`);
 console.log(`🌐  http://localhost:${PORT}/manifest.json\n`);
 
 // Kick off background warmup for all catalogs on startup
