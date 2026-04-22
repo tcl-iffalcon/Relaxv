@@ -1,21 +1,2705 @@
 {
-  "name": "rd-4k-stremio-addon",
-  "version": "1.0.0",
-  "description": "Stremio addon: Real-Debrid üzerinden yalnızca 4K içerikler + katalog",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+  "version": "1.35.2",
+  "exportedAt": "2026-04-18T15:45:25.698Z",
+  "config": {
+    "language": "en-US",
+    "includeAdult": false,
+    "searchEnabled": true,
+    "tvdbSeasonType": "default",
+    "usePosterProxy": true,
+    "displayAgeRating": false,
+    "showRateMeButton": false,
+    "anilistWatchTracking": false,
+    "mdblistWatchTracking": false,
+    "posterRatingProvider": "rpdb",
+    "showDisabledCatalogs": true,
+    "hideUnreleasedDigital": true,
+    "hideUnreleasedDigitalSearch": false,
+    "showMetaProviderAttribution": false,
+    "enableRatingPostersForLibrary": false,
+    "catalogSetupComplete": true,
+    "simklWatchTracking": false,
+    "traktWatchTracking": false,
+    "hideWatchedTrakt": true,
+    "hideWatchedMdblist": false,
+    "ageRating": "None",
+    "castCount": 10,
+    "providers": {
+      "anime": "tvdb",
+      "movie": "tmdb",
+      "series": "tvdb",
+      "anime_id_provider": "kitsu",
+      "forceAnimeForDetectedImdb": true
+    },
+    "blurThumbs": false,
+    "showPrefix": false,
+    "artProviders": {
+      "anime": {
+        "logo": "meta",
+        "poster": "meta",
+        "background": "meta"
+      },
+      "movie": {
+        "logo": "meta",
+        "poster": "meta",
+        "background": "meta"
+      },
+      "series": {
+        "logo": "meta",
+        "poster": "meta",
+        "background": "meta"
+      },
+      "englishArtOnly": false
+    },
+    "mal": {
+      "skipRecap": false,
+      "skipFiller": false,
+      "allowEpisodeMarking": true,
+      "useImdbIdForCatalogAndSearch": true
+    },
+    "sfw": true,
+    "tmdb": {
+      "scrapeImdb": true,
+      "forceLatinCastNames": false
+    },
+    "search": {
+      "enabled": true,
+      "providers": {
+        "movie": "tmdb.search",
+        "series": "tvdb.search",
+        "anime_movie": "kitsu.search.movie",
+        "anime_series": "kitsu.search.series",
+        "people_search_series": "tvdb.people.search"
+      },
+      "ai_enabled": true,
+      "searchOrder": [
+        "movie",
+        "series",
+        "gemini.search"
+      ],
+      "engineEnabled": {
+        "tmdb.search": true,
+        "tvdb.search": true,
+        "gemini.search": true,
+        "tvmaze.search": true,
+        "mal.search.movie": false,
+        "mal.search.series": false,
+        "tmdb.people.search": false,
+        "people_search_movie": true,
+        "people_search_series": true,
+        "tvdb.collections.search": false,
+        "kitsu.search.series": false,
+        "kitsu.search.movie": false
+      },
+      "engineRatingPosters": {
+        "movie": false,
+        "series": false,
+        "gemini.search": false,
+        "anime_series": true,
+        "anime_movie": true
+      }
+    },
+    "apiKeys": {
+      "gemini": "",
+      "tmdb": "",
+      "tvdb": "",
+      "fanart": "",
+      "rpdb": "",
+      "topPoster": "",
+      "mdblist": "",
+      "traktTokenId": "",
+      "simklTokenId": "",
+      "anilistTokenId": "",
+      "customDescriptionBlurb": ""
+    },
+    "catalogs": [
+      {
+        "id": "trakt.recommendations.movies",
+        "name": "🎯 Movie Recommendations",
+        "type": "movie",
+        "source": "trakt",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.recommendations.shows",
+        "name": "🎯 TV Recommendations",
+        "type": "series",
+        "source": "trakt",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "series"
+      },
+      {
+        "id": "tmdb.top",
+        "name": "🏆 Popular Movies",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.top",
+        "name": "🏆 Popular TV Shows",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "series"
+      },
+      {
+        "id": "tmdb.trending",
+        "name": "🔥 Trending Movies",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.trending",
+        "name": "🔥 Trending TV Shows",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "series"
+      },
+      {
+        "id": "tmdb.top_rated",
+        "name": "⭐ Top Rated Movies",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.top_rated",
+        "name": "⭐ Top Rated TV Shows",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": true,
+        "showInHome": false,
+        "enableRatingPosters": false,
+        "displayType": "series"
+      },
+      {
+        "id": "tmdb.airing_today",
+        "name": "📅 Airing Today",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.year",
+        "name": "⌚ By Year",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.year",
+        "name": "⌚ By Year",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.language",
+        "name": "🌐 By Language",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.language",
+        "name": "🌐 By Language",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tmdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvmaze.schedule",
+        "name": "📅 TVmaze Daily Schedule",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tvmaze",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvdb.trending",
+        "name": "📚 TVDB - Trending",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tvdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvdb.trending",
+        "name": "📚 TVDB - Trending",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tvdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvdb.genres",
+        "name": "📚 TVDB - Genres",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tvdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvdb.genres",
+        "name": "📚 TVDB - Genres",
+        "sort": "default",
+        "type": "series",
+        "order": "asc",
+        "source": "tvdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tvdb.collections",
+        "name": "📚 TVDB - Collections",
+        "sort": "default",
+        "type": "movie",
+        "order": "asc",
+        "source": "tvdb",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.discover.series.genres.popular.kids",
+        "type": "series",
+        "name": "🎭 Kids TV Shows",
+        "enabled": true,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=10762&with_original_language=en&with_status=0%7C3%7C4%7C5&vote_count.gte=10&first_air_date.gte=2000-01-01",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_genres": "10762",
+              "with_original_language": "en",
+              "with_status": "0|3|4|5",
+              "vote_count.gte": 10,
+              "first_air_date.gte": "2000-01-01"
+            },
+            "formState": {
+              "catalogName": "🎭 Kids",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                }
+              ],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2000-01-01",
+              "firstAirTo": "",
+              "seriesDatePreset": "custom",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "series"
+      },
+      {
+        "id": "tmdb.discover.movie.genres.popular.science-fiction",
+        "type": "movie",
+        "name": "Sci-Fi & Fantasy Movies",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_genres=878%7C14&without_genres=16&with_original_language=en&with_release_type=4%7C5%7C6&release_date.lte=2026-04-16&vote_average.gte=5.1&vote_count.gte=10",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_genres": "878|14",
+              "without_genres": "16",
+              "with_original_language": "en",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_average.gte": 5.1,
+              "vote_count.gte": 10
+            },
+            "formState": {
+              "catalogName": "Sci-Fi & Fantasy",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [
+                {
+                  "id": 878,
+                  "label": "Science Fiction"
+                },
+                {
+                  "id": 14,
+                  "label": "Fantasy"
+                }
+              ],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                5.1,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.series.genres.popular.sci-fi-fantasy",
+        "type": "series",
+        "name": "Sci-Fi & Fantasy TV Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=10765&without_genres=16%7C10762&with_original_language=en&with_status=0%7C3%7C4%7C5&vote_average.gte=5.1&vote_count.gte=10",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_genres": "10765",
+              "without_genres": "16|10762",
+              "with_original_language": "en",
+              "with_status": "0|3|4|5",
+              "vote_average.gte": 5.1,
+              "vote_count.gte": 10
+            },
+            "formState": {
+              "catalogName": "🎭 Sci-Fi & Fantasy",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [
+                {
+                  "id": 10765,
+                  "label": "Sci-Fi & Fantasy"
+                }
+              ],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                5.1,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "series"
+      },
+      {
+        "id": "mal.airing",
+        "name": "🍥 Airing Now",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.upcoming",
+        "name": "🍥 Upcoming Season",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.schedule",
+        "name": "🍥 Airing Schedule",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.seasons",
+        "name": "🍥 Seasons",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.80sDecades",
+        "name": "🍥 Best of 80s",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.90sDecades",
+        "name": "🍥 Best of 90s",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.00sDecades",
+        "name": "🍥 Best of 2000s",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.10sDecades",
+        "name": "🍥 Best of 2010s",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.20sDecades",
+        "name": "🍥 Best of 2020s",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.genres",
+        "name": "🍥 Genres",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.studios",
+        "name": "🍥 By Studio",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.top_movies",
+        "name": "🍥 Top Movies",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.top_series",
+        "name": "🍥 Top Series",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.most_favorites",
+        "name": "🍥 Most Favorites",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.most_popular",
+        "name": "🍥 Most Popular",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "mal.top_anime",
+        "name": "🍥 Top Anime",
+        "sort": "default",
+        "type": "anime",
+        "order": "asc",
+        "source": "mal",
+        "enabled": false,
+        "showInHome": false
+      },
+      {
+        "id": "tmdb.discover.movie.decades.2020s",
+        "type": "movie",
+        "name": "2020s",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_original_language=en&with_release_type=4%7C5%7C6&release_date.lte=2026-04-16&vote_count.gte=50&primary_release_date.gte=2020-01-01&primary_release_date.lte=2029-12-31",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_original_language": "en",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_count.gte": 50,
+              "primary_release_date.gte": "2020-01-01",
+              "primary_release_date.lte": "2029-12-31"
+            },
+            "formState": {
+              "catalogName": "🎥 2020s",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 50,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2020-01-01",
+              "primaryReleaseTo": "2029-12-31",
+              "movieDatePreset": "custom",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.movie.decades.2010s",
+        "type": "movie",
+        "name": "2010s",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_original_language=en&with_release_type=4%7C5%7C6&release_date.lte=2026-04-16&vote_count.gte=50&primary_release_date.gte=2010-01-01&primary_release_date.lte=2019-12-31",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_original_language": "en",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_count.gte": 50,
+              "primary_release_date.gte": "2010-01-01",
+              "primary_release_date.lte": "2019-12-31"
+            },
+            "formState": {
+              "catalogName": "🎥 2010s",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 50,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2010-01-01",
+              "primaryReleaseTo": "2019-12-31",
+              "movieDatePreset": "custom",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.movie.decades.2000s",
+        "type": "movie",
+        "name": "2000s",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_original_language=en&with_release_type=4%7C5%7C6&release_date.lte=2026-04-16&vote_count.gte=35&primary_release_date.gte=2000-01-01&primary_release_date.lte=2009-12-31",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_original_language": "en",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_count.gte": 35,
+              "primary_release_date.gte": "2000-01-01",
+              "primary_release_date.lte": "2009-12-31"
+            },
+            "formState": {
+              "catalogName": "🎥 2000s",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 35,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2000-01-01",
+              "primaryReleaseTo": "2009-12-31",
+              "movieDatePreset": "custom",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.movie.decades.1990s",
+        "type": "movie",
+        "name": "1990s",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_original_language=en&with_release_type=4%7C5%7C6&release_date.lte=2026-04-16&vote_average.gte=5&vote_count.gte=25&primary_release_date.gte=1990-01-01&primary_release_date.lte=1999-12-31",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_original_language": "en",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_average.gte": 5,
+              "vote_count.gte": 25,
+              "primary_release_date.gte": "1990-01-01",
+              "primary_release_date.lte": "1999-12-31"
+            },
+            "formState": {
+              "catalogName": "🎥 1990s",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                5,
+                10
+              ],
+              "voteCountMin": 25,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "1990-01-01",
+              "primaryReleaseTo": "1999-12-31",
+              "movieDatePreset": "custom",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.movie.decades.1980s",
+        "type": "movie",
+        "name": "1980s",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&with_original_language=en&watch_region=GB&with_release_type=4%7C5%7C6&release_date.lte=2026-04-17&vote_count.gte=35&primary_release_date.gte=1980-01-01&primary_release_date.lte=1989-12-31",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_original_language": "en",
+              "watch_region": "GB",
+              "with_release_type": "4|5|6",
+              "release_date.lte": "__tmdb_date__:today:to",
+              "vote_count.gte": 35,
+              "primary_release_date.gte": "1980-01-01",
+              "primary_release_date.lte": "1989-12-31"
+            },
+            "formState": {
+              "catalogName": "1980s",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 35,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "1980-01-01",
+              "primaryReleaseTo": "1989-12-31",
+              "movieDatePreset": "custom",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "trakt.list.6241187",
+        "type": "all",
+        "name": "Director: Steven Spielberg",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 34,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241187"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241250",
+        "type": "all",
+        "name": "Director: Ridley Scott",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 30,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241250"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241270",
+        "type": "all",
+        "name": "Director: Tim Burton",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 20,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241270"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241276",
+        "type": "all",
+        "name": "Director: Ron Howard",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 30,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241276"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241345",
+        "type": "all",
+        "name": "Director: Danny Boyle",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 14,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241345"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241367",
+        "type": "all",
+        "name": "Director: Oliver Stone",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 23,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241367"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241387",
+        "type": "all",
+        "name": "Director: M. Night Shyamalan",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 16,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241387"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241405",
+        "type": "all",
+        "name": "Director: Stanley Kubrick",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 13,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241405"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241522",
+        "type": "all",
+        "name": "Director: Coen Brothers",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 21,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241522"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6241445",
+        "type": "all",
+        "name": "Director: Quentin Tarantino",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 11,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6241445"
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6242091",
+        "type": "all",
+        "name": "Director: Christopher Nolan",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 12,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6242091"
+        },
+        "randomizePerPage": false,
+        "enableRatingPosters": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6252074",
+        "type": "all",
+        "name": "Director: Wes Anderson",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 12,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6252074"
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.6252088",
+        "type": "all",
+        "name": "Director: James Cameron",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "desc",
+        "metadata": {
+          "itemCount": 10,
+          "privacy": "public",
+          "author": "Origin14",
+          "description": "",
+          "url": "https://trakt.tv/lists/6252088"
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": false,
+        "displayType": "movie"
+      },
+      {
+        "id": "streaming.hbm",
+        "name": "HBO Max (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.hbm",
+        "name": "HBO Max (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.dnp",
+        "name": "Disney+ (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.dnp",
+        "name": "Disney+ (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.amp",
+        "name": "Prime Video (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.amp",
+        "name": "Prime Video (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.atp",
+        "name": "Apple TV+ (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.atp",
+        "name": "Apple TV+ (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.pmp",
+        "name": "Paramount+ (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.pmp",
+        "name": "Paramount+ (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.nfx",
+        "name": "Netflix (Movies)",
+        "type": "movie",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "streaming.nfx",
+        "name": "Netflix (Series)",
+        "type": "series",
+        "source": "streaming",
+        "enabled": true,
+        "showInHome": false,
+        "sort": "release_date",
+        "sortDirection": "desc",
+        "enableRatingPosters": false,
+        "metadata": {}
+      },
+      {
+        "id": "trakt.list.33752958",
+        "type": "all",
+        "name": "The Wizarding World",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 11,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33752958",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.33756184",
+        "type": "all",
+        "name": "Marina's Movies",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "rank",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 7,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33756184",
+          "hideWatchedTrakt": false
+        },
+        "randomizePerPage": true,
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.33761345",
+        "type": "all",
+        "name": "Pixar",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 21,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33761345",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.33762909",
+        "type": "all",
+        "name": "Lord Of The Rings",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 6,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33762909",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.33781385",
+        "type": "all",
+        "name": "Star Trek",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 5,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33781385",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "series"
+      },
+      {
+        "id": "trakt.list.33998688",
+        "type": "all",
+        "name": "Watch later...",
+        "enabled": true,
+        "showInHome": true,
+        "source": "trakt",
+        "sort": "random",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 29,
+          "privacy": "public",
+          "author": "Extreme_One",
+          "description": "",
+          "url": "https://trakt.tv/lists/33998688"
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "cacheTTL": 86400,
+        "displayType": "series"
+      },
+      {
+        "id": "mdblist.162311",
+        "type": "movie",
+        "name": "Ghostbusters",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "desc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 5,
+          "author": "extreme_one",
+          "url": "https://mdblist.com/lists/extreme_one/ghostbusters",
+          "hideWatchedTrakt": false
+        }
+      },
+      {
+        "id": "mdblist.3882",
+        "type": "series",
+        "name": "Latest TV Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "asc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 300,
+          "author": "hdlists",
+          "url": "https://mdblist.com/lists/hdlists/latest-tv-shows",
+          "mediatype": "show"
+        }
+      },
+      {
+        "id": "mdblist.3087",
+        "type": "series",
+        "name": "BBC Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "asc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 300,
+          "author": "garycrawfordgc",
+          "url": "https://mdblist.com/lists/garycrawfordgc/bbc-shows",
+          "mediatype": "show"
+        }
+      },
+      {
+        "id": "mdblist.3091",
+        "type": "series",
+        "name": "UK Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "desc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 300,
+          "author": "garycrawfordgc",
+          "url": "https://mdblist.com/lists/garycrawfordgc/channel-4-shows",
+          "mediatype": "show",
+          "hideWatchedTrakt": false
+        },
+        "randomizePerPage": false
+      },
+      {
+        "id": "mdblist.162329",
+        "type": "movie",
+        "name": "Pirates of the Caribbean",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "desc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 5,
+          "author": "extreme_one",
+          "url": "https://mdblist.com/lists/extreme_one/pirates-of-the-caribbean",
+          "hideWatchedTrakt": false
+        }
+      },
+      {
+        "id": "mdblist.162330",
+        "type": "movie",
+        "name": "Back to the Future",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "released",
+        "order": "desc",
+        "cacheTTL": 86400,
+        "genreSelection": "standard",
+        "enableRatingPosters": false,
+        "metadata": {
+          "itemCount": 3,
+          "author": "extreme_one",
+          "url": "https://mdblist.com/lists/extreme_one/back-to-the-future",
+          "hideWatchedTrakt": false
+        }
+      },
+      {
+        "id": "trakt.list.21779826",
+        "type": "all",
+        "name": "Julia Donaldson Collection",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 13,
+          "privacy": "public",
+          "author": "Nylgeroo",
+          "description": "",
+          "url": "https://trakt.tv/lists/21779826",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "series"
+      },
+      {
+        "id": "trakt.list.11753899",
+        "type": "all",
+        "name": "James Bond - Daniel Craig",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 5,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "James Bond movies starring Daniel Craig, sorted by release order.",
+          "url": "https://trakt.tv/lists/11753899",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie",
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.11754060",
+        "type": "all",
+        "name": "James Bond - Sean Connery",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 7,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "James Bond movies starring Sean Connery, sorted by release order.",
+          "url": "https://trakt.tv/lists/11754060",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie",
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.11753990",
+        "type": "all",
+        "name": "James Bond - Pierce Brosnan",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 4,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "James Bond movies starring Pierce Brosnan, sorted by release order.",
+          "url": "https://trakt.tv/lists/11753990",
+          "hideWatchedTrakt": false
+        },
+        "displayType": "movie",
+        "enableRatingPosters": false,
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.11754031",
+        "type": "all",
+        "name": "James Bond - Roger Moore",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 7,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "James Bond movies starring Roger Moore, sorted by release order.",
+          "url": "https://trakt.tv/lists/11754031",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie",
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.11754010",
+        "type": "all",
+        "name": "James Bond - Timothy Dalton",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 2,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "James Bond movies starring Timothy Dalton, sorted by release order.",
+          "url": "https://trakt.tv/lists/11754010",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie",
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.22202556",
+        "type": "all",
+        "name": "Star Wars Movies",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 11,
+          "privacy": "public",
+          "author": "MaxtronTV",
+          "description": "",
+          "url": "https://trakt.tv/lists/22202556",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.22757470",
+        "type": "all",
+        "name": "Star Wars Shows & Series",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 19,
+          "privacy": "public",
+          "author": "geekztor",
+          "description": "The complete list with all the Star Wars shows and series.\r\n\r\ntrakt.tv/users/geekztor",
+          "url": "https://trakt.tv/lists/22757470",
+          "hideWatchedTrakt": false
+        },
+        "displayType": "series",
+        "enableRatingPosters": false,
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.802940",
+        "type": "all",
+        "name": "James Bond",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 27,
+          "privacy": "public",
+          "author": "Any",
+          "description": "",
+          "url": "https://trakt.tv/lists/802940",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.11723506",
+        "type": "all",
+        "name": "Indiana Jones",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 5,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "Movies in the Indiana Jones series, sorted by release order",
+          "url": "https://trakt.tv/lists/11723506",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.11723357",
+        "type": "all",
+        "name": "The Matrix",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 4,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "Movies in the Matrix series, sorted by release order.",
+          "url": "https://trakt.tv/lists/11723357",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.11723368",
+        "type": "all",
+        "name": "The Planet of the Apes (Reboot)",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 3,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "Movies in the Planet of the Apes reboot series, sorted by release order.",
+          "url": "https://trakt.tv/lists/11723368",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.11723321",
+        "type": "all",
+        "name": "The Rocky Series",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 9,
+          "privacy": "public",
+          "author": "dinkysniff",
+          "description": "Movies in the Rocky universe, sorted by release order.",
+          "url": "https://trakt.tv/lists/11723321",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "tmdb.discover.series.uk_drama.mo2wdbu8",
+        "type": "series",
+        "name": "UK Drama TV Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=18%7C9648%7C80&without_genres=16%7C10767%7C10766%7C10764%7C10763%7C10762%7C35&with_origin_country=GB&watch_region=GB&with_status=0%7C3%7C4%7C5&vote_count.gte=35",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "popularity.desc",
+              "include_adult": false,
+              "with_genres": "18|9648|80",
+              "without_genres": "16|10767|10766|10764|10763|10762|35",
+              "with_origin_country": "GB",
+              "watch_region": "GB",
+              "with_status": "0|3|4|5",
+              "vote_count.gte": 35
+            },
+            "formState": {
+              "catalogName": "UK Drama",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [
+                {
+                  "id": 18,
+                  "label": "Drama"
+                },
+                {
+                  "id": 9648,
+                  "label": "Mystery"
+                },
+                {
+                  "id": 80,
+                  "label": "Crime"
+                }
+              ],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10767,
+                  "label": "Talk"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10764,
+                  "label": "Reality"
+                },
+                {
+                  "id": 10763,
+                  "label": "News"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 35,
+                  "label": "Comedy"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "GB",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": true,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 35,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "custom",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          },
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "displayType": "series"
+      },
+      {
+        "id": "trakt.list.21226800",
+        "type": "all",
+        "name": "Hunger Games",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 6,
+          "privacy": "public",
+          "author": "Grelipe",
+          "description": "",
+          "url": "https://trakt.tv/lists/21226800",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "displayType": "movie",
+        "cacheTTL": 86400
+      },
+      {
+        "id": "trakt.list.11332030",
+        "type": "all",
+        "name": "Jurassic Park",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 8,
+          "privacy": "public",
+          "author": "AraChn0id",
+          "description": "Jurassic Park, later also referred to as Jurassic World, is an American science fiction media franchise centered on a disastrous attempt to create a theme park of cloned dinosaurs. It began in 1990 when Universal Pictures and Amblin Entertainment bought the rights to the novel by Michael Crichton before it was even published. The book was successful, as was Steven Spielberg's 1993 film adaptation. The film received a theatrical 3D re-release in 2013, and was selected in 2018 for preservation in the United States National Film Registry by the Library of Congress as being \"culturally, historically, or aesthetically significant.\"\r\n\r\nA sequel novel, The Lost World, was published in 1995, followed by a film adaptation in 1997. Subsequent films in the series, including Jurassic Park III (2001), are not based on the novels. Numerous video games and comic books based on the franchise have been created since the release of the 1993 film, and several water rides have been opened at various Universal theme parks. As of 2000, the franchise had generated $5 billion in revenue, making it one of the highest-grossing media franchises of all time.\r\n\r\nThe fourth film, Jurassic World, was initially scheduled to be released in 2005, but was delayed numerous times and was ultimately released in June 2015. It became the first film to gross over $500 million worldwide in its opening weekend, and grossed over $1.6 billion through the course of its theatrical run, making it the third highest-grossing film at the time. It was also the second highest-grossing film of 2015. When adjusted for monetary inflation, Jurassic World is the second highest-grossing film in the franchise after Jurassic Park. Since the film's release, the franchise has continued to use the Jurassic World name.\r\n\r\nA fifth film, Jurassic World: Fallen Kingdom, was released in June 2018. The film grossed over $1.3 billion worldwide, making it the third Jurassic film to pass the billion dollar mark. It is the third highest-grossing film of 2018 and the 13th highest-grossing film of all time. A sixth film, titled Jurassic World: Dominion, is scheduled to be released on June 11, 2021. Lego has produced several animated projects based on the Jurassic World films, including a miniseries released in 2019. Netflix and DreamWorks Animation also plan to release an animated series, Jurassic World: Camp Cretaceous, in 2020.",
+          "url": "https://trakt.tv/lists/11332030",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.801242",
+        "type": "all",
+        "name": "DreamWorks",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 53,
+          "privacy": "public",
+          "author": "Draackje",
+          "description": "Feature films by Dreamworks Animation.\r\n\r\nhttp://en.wikipedia.org/wiki/DreamWorks_Animation",
+          "url": "https://trakt.tv/lists/801242",
+          "hideWatchedTrakt": false
+        },
+        "displayType": "movie",
+        "enableRatingPosters": false,
+        "cacheTTL": 86400
+      },
+      {
+        "id": "tmdb.discover.series.bbc_shows.mo3f2pnm",
+        "type": "series",
+        "name": "BBC Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762%7C10763&watch_region=GB&with_watch_providers=38&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "first_air_date.desc",
+              "include_adult": false,
+              "without_genres": "16|10762|10763",
+              "watch_region": "GB",
+              "with_watch_providers": "38",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy"
+            },
+            "formState": {
+              "catalogName": "BBC Shows",
+              "discoverSource": "tmdb",
+              "sortBy": "first_air_date.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10763,
+                  "label": "News"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [
+                {
+                  "id": 38,
+                  "label": "BBC iPlayer"
+                }
+              ],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "enableRatingPosters": false
+      },
+      {
+        "id": "tmdb.discover.series.itv_shows.mo3f4hdw",
+        "type": "series",
+        "name": "ITV Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=10762%7C16&watch_region=GB&with_watch_providers=41&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "first_air_date.desc",
+              "include_adult": false,
+              "without_genres": "10762|16",
+              "watch_region": "GB",
+              "with_watch_providers": "41",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy"
+            },
+            "formState": {
+              "catalogName": "ITV Shows",
+              "discoverSource": "tmdb",
+              "sortBy": "first_air_date.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 16,
+                  "label": "Animation"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [
+                {
+                  "id": 41,
+                  "label": "ITVX"
+                }
+              ],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "enableRatingPosters": false
+      },
+      {
+        "id": "tmdb.discover.series.channel_4_shows.mo3f7rpz",
+        "type": "series",
+        "name": "Channel 4 Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762&watch_region=GB&with_watch_providers=103&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "first_air_date.desc",
+              "include_adult": false,
+              "without_genres": "16|10762",
+              "watch_region": "GB",
+              "with_watch_providers": "103",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy"
+            },
+            "formState": {
+              "catalogName": "Channel 4 Shows",
+              "discoverSource": "tmdb",
+              "sortBy": "first_air_date.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [
+                {
+                  "id": 103,
+                  "label": "Channel 4"
+                }
+              ],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "enableRatingPosters": false
+      },
+      {
+        "id": "tmdb.discover.series.channel_4_shows.mo3f5vt2",
+        "type": "series",
+        "name": "Channel 5 Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762&watch_region=GB&with_watch_providers=333&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "first_air_date.desc",
+              "include_adult": false,
+              "without_genres": "16|10762",
+              "watch_region": "GB",
+              "with_watch_providers": "333",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy"
+            },
+            "formState": {
+              "catalogName": "Channel 5 Shows",
+              "discoverSource": "tmdb",
+              "sortBy": "first_air_date.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "GB",
+              "watchProviders": [
+                {
+                  "id": 333,
+                  "label": "5"
+                }
+              ],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "releaseRegion": ""
+            }
+          }
+        },
+        "enableRatingPosters": false
+      },
+      {
+        "id": "trakt.list.22888726",
+        "type": "all",
+        "name": "Disney Films",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 165,
+          "privacy": "public",
+          "author": "sargeusmc",
+          "description": "All films listed here:\r\n http://disney.wikia.com/wiki/List_of_Disney_theatrical_animated_features\r\n\r\nUPDATED: 7/28/21",
+          "url": "https://trakt.tv/lists/22888726"
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.21033097",
+        "type": "all",
+        "name": "Mega Erotic",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "rank",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 2398,
+          "privacy": "public",
+          "author": "xeexex",
+          "description": "More comprehensive IMDB List: https://www.imdb.com/list/ls089219989/",
+          "url": "https://trakt.tv/lists/21033097"
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.1282987",
+        "type": "all",
+        "name": "1001 Greatest Movies of All Time",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "rank",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 1001,
+          "privacy": "public",
+          "author": "captainnapalm",
+          "description": "/u/StopReadinMyUsername on reddit combined the average ratings (Critic's & Users) from IMDb, Rotten Tomatoes, Metacritic and Letterboxd, and then weighted and tweaked the results with general film data from iCheckMovies and IMDb to reveal the 1001 Greatest Movies of All Time.\r\n\r\nsource: http://redd.it/3hbiio",
+          "url": "https://trakt.tv/lists/1282987",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.2143363",
+        "type": "all",
+        "name": "IMDB: Top Rated TV Shows",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "rank",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 242,
+          "privacy": "public",
+          "author": "justin",
+          "description": "Top 250 TV shows, as rated by IMDB members.  List updated daily.",
+          "url": "https://trakt.tv/lists/2143363",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "randomizePerPage": true,
+        "displayType": "series"
+      },
+      {
+        "id": "trakt.list.2142753",
+        "type": "all",
+        "name": "IMDB: Top Rated Movies",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "rank",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 250,
+          "privacy": "public",
+          "author": "justin",
+          "description": "Top 250 movies, as rated by regular IMDB voters. List updated daily.",
+          "url": "https://trakt.tv/lists/2142753",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "randomizePerPage": true,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      },
+      {
+        "id": "trakt.list.21247532",
+        "type": "all",
+        "name": "Jurassic Park",
+        "enabled": true,
+        "showInHome": false,
+        "source": "trakt",
+        "sort": "released",
+        "sortDirection": "asc",
+        "metadata": {
+          "itemCount": 6,
+          "privacy": "public",
+          "author": "Rygo92",
+          "description": "",
+          "url": "https://trakt.tv/lists/21247532",
+          "hideWatchedTrakt": false
+        },
+        "enableRatingPosters": false,
+        "cacheTTL": 86400,
+        "displayType": "movie"
+      }
+    ],
+    "lastModified": 1776518353429,
+    "configVersion": 1776518353430,
+    "configHash": "7677b58f96dd9d47",
+    "streaming": [
+      "hbm",
+      "dnp",
+      "amp",
+      "atp",
+      "pmp",
+      "nfx"
+    ]
   },
-  "dependencies": {
-    "axios": "^1.7.2",
-    "stremio-addon-sdk": "^1.6.10"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "license": "MIT"
+  "metadata": {
+    "apiKeysExcluded": true,
+    "totalCatalogs": 107,
+    "enabledCatalogs": 80
+  }
 }
